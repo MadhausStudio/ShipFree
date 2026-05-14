@@ -26,6 +26,8 @@
     "@plunk/node": "^3.0.3",
     "@polar-sh/better-auth": "^1.6.3",
     "@polar-sh/sdk": "^0.42.1",
+    "@radix-ui/react-separator": "^1.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
     "@react-email/components": "1.0.3",
     "@sentry/nextjs": "^10",
     "@t3-oss/env-nextjs": "^0.13.10",
@@ -34,8 +36,10 @@
     "aws4fetch": "^1.0.20",
     "better-auth": "^1.4.10",
     "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dodopayments": "^2.14.0",
     "drizzle-orm": "^0.45.1",
+    "framer-motion": "^12.38.0",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
@@ -64,6 +68,7 @@
     "react-email": "5.1.1",
     "resend": "^6.6.0",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.3",
     "typescript": "^5"
   }
 }

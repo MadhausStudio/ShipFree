@@ -1,14 +1,22 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Bricolage_Grotesque } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Geist_Mono, Bricolage_Grotesque, Inter, Cormorant_Garamond } from 'next/font/google'
 
 import '@/app/_styles/globals.css'
 import { QueryProvider } from '@/app/_providers/query-provider'
 import { ToastProvider } from '@/components/ui/toast'
 import { generateMetadata } from '@/lib/seo'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
   subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+})
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-serif',
+  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
@@ -23,27 +31,33 @@ const bricolageGrotesque = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   ...generateMetadata({
-    title: 'ShipFree - Turn Ideas Into Products, Fast',
+    title: 'Spruce Ridge Wellness | Pelvic Health & Medical Aesthetics in Newfoundland',
     description:
-      'Ship your startup in days, not weeks. A production-ready Next.js boilerplate with auth, payments, and everything you need to launch fast. Free forever, open source.',
+      "FRCSC surgeon-led pelvic health, medical aesthetics, skin treatments, and women's wellness in Bay Roberts and St. John's, Newfoundland. Evidence-based, compassionate, stigma-free care.",
     isRootLayout: true,
   }),
   icons: {
-    icon: '/image.png',
-    shortcut: '/image.png',
-    apple: '/image.png',
+    icon: '/images/logo-mark.png',
+    shortcut: '/images/logo-mark.png',
+    apple: '/images/logo-mark.png',
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#0F2A1F',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${bricolageGrotesque.variable} font-sans antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${inter.variable} ${cormorant.variable} ${geistMono.variable} ${bricolageGrotesque.variable} bg-background`}
+    >
+      <body className="font-sans antialiased">
         <QueryProvider>
           <ToastProvider>{children}</ToastProvider>
-          <div className="h-screen w-full fixed top-0 left-0 -z-10  bg-[url('/grain.jpg')] opacity-5" />
         </QueryProvider>
       </body>
     </html>
